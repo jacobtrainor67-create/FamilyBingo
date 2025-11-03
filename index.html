@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <title>Custom Bingo</title>
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Custom Bingo">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Custom Bingo</h1>
+    <button id="installBtn" class="btn secondary" hidden>Install</button>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>Setup</h2>
+      <label class="field">
+        <span>Your items (one per line)</span>
+        <textarea id="itemsInput" rows="8" placeholder="e.g. Blue car
+Someone says 'literally'
+Dog barks
+Spilled coffee"></textarea>
+      </label>
+
+      <div class="grid controls">
+        <label class="field sm">
+          <span>Board size</span>
+          <select id="boardSize">
+            <option value="3">3 × 3</option>
+            <option value="4">4 × 4</option>
+            <option value="5" selected>5 × 5</option>
+            <option value="6">6 × 6</option>
+            <option value="7">7 × 7</option>
+          </select>
+        </label>
+
+        <label class="field sm checkbox">
+          <input type="checkbox" id="freeSpace" checked>
+          <span>Center is Free Space</span>
+        </label>
+      </div>
+
+      <div class="row gap">
+        <button id="generateBtn" class="btn primary">Generate Board</button>
+        <button id="clearMarksBtn" class="btn">Clear Marks</button>
+        <button id="shuffleBtn" class="btn">Shuffle Board</button>
+      </div>
+
+      <div class="row gap">
+        <button id="saveListBtn" class="btn">Save List</button>
+        <button id="loadListBtn" class="btn">Load Saved</button>
+        <button id="exportBtn" class="btn">Export</button>
+        <input type="file" id="importFile" accept=".json" hidden>
+        <button id="importBtn" class="btn">Import</button>
+      </div>
+
+      <p class="hint">
+        Tip: Share this as an app on iPhone — open in Safari → Share → <strong>Add to Home Screen</strong>.
+      </p>
+    </section>
+
+    <section class="board-wrap">
+      <div id="statusBar" class="status" aria-live="polite"></div>
+      <div id="board" class="board" role="grid" aria-label="Bingo board"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <span>Offline-ready PWA • v1.0</span>
+    <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub Pages friendly</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
